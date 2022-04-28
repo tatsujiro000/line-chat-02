@@ -1,31 +1,31 @@
 const functions = require('firebase-functions');
 //express
 const express = require('express');
+//consolidate
+const engines = require('consolidate');
+
 const app = express();
+app.engine('hbs', engines.handlebars);
+app.set('views', './views');
+app.set('view engine', 'hbs');
+
+
 //cors
 const cors = require('cors')({origin: true});
 //line
 const line = require('@line/bot-sdk');
+const { requires } = require('consolidate');
 
-require('dotenv').config();
 const config = {
-    channelSecret: process.env.channelSecret,
-    channelAccessToken: process.env.channelAccessToken
+    channelSecret: '3cfd07c22b62f9295ddedbdc194c4dc4',
+    channelAccessToken: 'Mc6+kZuF20d0Db8ZwmoftWdJRs3mukCdK6S5pFSTJPD98Fclb93DSdwcQ4NJdB0T4CApD+ZwQRz/MpMYY4yIA6J3piUJIOGVRoAVe41qyofdiVjdDhaaJk0cIqS//hmReeykDu0Zrk5x+xNFyoCCpgdB04t89/1O/w1cDnyilFU='
 };
 
 
 app.use(cors);
 
 app.get('/', (req, res) => {
-    res.send(`
-      <!doctype html>
-      <head>
-        <title> LINE Business SMART TOOL</title>
-      </head>
-      <body>
-        <p>LINE　Businessの自動応答と手動返信を両立！</p>
-      </body>
-    </html>`);
+    res.render('index', {});
 });
 
 //なくてもよい。てか、いらない。
@@ -88,5 +88,4 @@ async function handleEvent(event) {
   }
 
 
-exports.app = functions.region('asia-northeast1').https.onRequest(app);
-
+exports.app = functions.https.onRequest(app);
