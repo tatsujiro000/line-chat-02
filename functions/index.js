@@ -17,8 +17,8 @@ const line = require('@line/bot-sdk');
 const { requires } = require('consolidate');
 
 const config = {
-    channelSecret: '3cfd07c22b62f9295ddedbdc194c4dc4',
-    channelAccessToken: 'Mc6+kZuF20d0Db8ZwmoftWdJRs3mukCdK6S5pFSTJPD98Fclb93DSdwcQ4NJdB0T4CApD+ZwQRz/MpMYY4yIA6J3piUJIOGVRoAVe41qyofdiVjdDhaaJk0cIqS//hmReeykDu0Zrk5x+xNFyoCCpgdB04t89/1O/w1cDnyilFU='
+    channelSecret: 'XXXXXXXXXX',
+    channelAccessToken: 'XXXXXXXXXXX'
 };
 
 
